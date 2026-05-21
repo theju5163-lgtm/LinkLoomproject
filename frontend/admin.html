@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body onload="loadAdmin()">
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2>Admin Panel</h2>
+
+<button onclick="showSection('dashboard')">Dashboard</button>
+<button onclick="showSection('add')">Add Product</button>
+<button onclick="showSection('products')">Products</button>
+<button onclick="logoutAdmin()">Logout</button>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section">
+
+<h1>Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Products</h3>
+<p id="totalProducts">0</p>
+</div>
+
+<div class="card">
+<h3>Total Users</h3>
+<p>1</p>
+</div>
+
+<div class="card">
+<h3>Orders</h3>
+<p>0</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- ADD PRODUCT -->
+<div id="add" class="section hidden">
+
+<h1>Add Product</h1>
+
+<input id="name" placeholder="Product Name">
+<input id="price" placeholder="Price">
+<input id="category" placeholder="Category">
+<input id="image" placeholder="Image URL">
+
+<button onclick="addProduct()">Add Product</button>
+
+</div>
+
+<!-- PRODUCTS TABLE -->
+<div id="products" class="section hidden">
+
+<h1>Manage Products</h1>
+
+<table>
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Category</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="productTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>

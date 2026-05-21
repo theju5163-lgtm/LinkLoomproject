@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Premium Artisan Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar Navigation Panel -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>Link<span>Loom</span></h2>
+      </div>
+      
+      <nav class="menu">
+        <a class="active"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+        <a href="marketplace.html"><i class="fa-solid fa-shop"></i> Marketplace</a>
+        <a href="admin.html"><i class="fa-solid fa-box"></i> Manage Catalog</a>
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Shopping Cart</a>
+        <a onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main">
+      <!-- Topbar with Profile details -->
+      <header class="topbar">
+        <h1>Overview</h1>
+        
+        <div class="top-right">
+          <input class="search" placeholder="Search analytics...">
+          <button class="notification"><i class="fa-solid fa-bell"></i></button>
+        </div>
+      </header>
+
+      <!-- Stat Widgets Block (Animates dynamically on load) -->
+      <section class="cards">
+        <div class="card">
+          <h3>Total Revenue</h3>
+          <h1 id="revenue">₹0</h1>
+          <p><i class="fa-solid fa-arrow-up"></i> +18.4% this month</p>
+        </div>
+
+        <div class="card">
+          <h3>Total Orders</h3>
+          <h1 id="orders">0</h1>
+          <p><i class="fa-solid fa-arrow-up"></i> +6.2% since yesterday</p>
+        </div>
+
+        <div class="card">
+          <h3>Artisan Partners</h3>
+          <h1 id="artisans">0</h1>
+          <p><i class="fa-solid fa-arrow-up"></i> +12 new signups</p>
+        </div>
+      </section>
+
+      <!-- Analytics Charts & Orders Grid -->
+      <section class="dashboard-grid">
+        <!-- Visual Analytical CSS Chart -->
+        <div class="chart-card">
+          <h2>Marketplace Analytics</h2>
+          <div class="chart">
+            <div class="bar" title="January"></div>
+            <div class="bar" title="February"></div>
+            <div class="bar" title="March"></div>
+            <div class="bar" title="April"></div>
+            <div class="bar" title="May"></div>
+          </div>
+        </div>
+
+        <!-- Dynamic Order History (Checkout Integration) -->
+        <div class="order-history-card">
+          <h2>Recent Orders</h2>
+          <div class="order-list" id="orderHistoryContainer">
+            <!-- Injected dynamically via js/dashboard.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Catalogue Showcase -->
+      <section class="products-section">
+        <h2>Featured Products</h2>
+        <div class="product-grid" id="dashboardProducts">
+          <!-- Injected dynamically via js/dashboard.js -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

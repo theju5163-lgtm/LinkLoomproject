@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Premium Artisan Marketplace</title>
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Premium Sticky Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <h2>Link<span>Loom</span></h2>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="marketplace.html">Shop</a></li>
+        <li><a href="dashboard.html">Stories</a></li>
+        <li><a href="dashboard.html">Artisans</a></li>
+      </ul>
+      <button onclick="explore()">Explore Collection</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="left">
+      <p class="tag">Heritage Craft • Modern Luxury</p>
+      <h1>Woven by Hand, Powered by Stories</h1>
+      <p>Every handcrafted product preserves culture, supports artisan families directly, and carries a story of passion and heritage.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="explore()">Explore Collection</button>
+        <button class="btn-secondary" onclick="window.location.href='dashboard.html'">Our Story</button>
+      </div>
+    </div>
+    <div class="right">
+      <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=900" alt="Traditional Indian Clay Pottery in Hand">
+    </div>
+  </section>
+
+  <!-- Shop by Category Section -->
+  <section class="categories">
+    <div class="categories-container">
+      <h2>Shop by Category</h2>
+      <p class="categories-subtitle">Discover handcrafted luxuries curated across traditional disciplines</p>
+      
+      <div class="category-grid">
+        <div class="category" onclick="window.location.href='marketplace.html'">
+          <h3>Ready To Wear</h3>
+          <p>24 Products</p>
+        </div>
+        <div class="category" onclick="window.location.href='marketplace.html'">
+          <h3>Home & Living</h3>
+          <p>32 Products</p>
+        </div>
+        <div class="category" onclick="window.location.href='marketplace.html'">
+          <h3>Handmade Crafts</h3>
+          <p>18 Products</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artisan Spotlight Section -->
+  <section class="spotlight">
+    <div class="spotlight-left">
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800" alt="Master Artisan Amara Osei creating clay crafts">
+    </div>
+    <div class="spotlight-right">
+      <p class="tag">Artisan Spotlight</p>
+      <h1>Amara Osei</h1>
+      <h3>Hand Weaving & Pottery • 22 Years Experience</h3>
+      <p>"We don't just craft products; we weave the stories of our ancestors into tangible art. Every texture holds a memory, and every design carries a legacy of resilience."</p>
+      <button class="btn-primary" onclick="window.location.href='marketplace.html'">Meet Artisan</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h2>Link<span>Loom</span></h2>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="marketplace.html">Marketplace</a></li>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="signup.html">Create Account</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 LinkLoom. All rights reserved.</p>
+      <p>Crafted with Passion & Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    function explore(){
+      let user = localStorage.getItem("user");
+      let loggedIn = localStorage.getItem("loggedIn");
+      
+      if (!user) {
+        window.location.href = "signup.html";
+      } else if (loggedIn === "true") {
+        window.location.href = "marketplace.html";
+      } else {
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>

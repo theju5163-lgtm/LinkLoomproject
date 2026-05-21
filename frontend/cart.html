@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Your Shopping Bag</title>
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body onload="loadCart()">
+
+  <!-- Premium Sticky Header -->
+  <header>
+    <nav>
+      <div class="logo" onclick="window.location.href='marketplace.html'" style="cursor: pointer;">
+        <h2 style="font-family: 'Playfair Display', serif; color: #421B12;">LinkLoom</h2>
+      </div>
+      <button onclick="window.location.href='marketplace.html'"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</button>
+    </nav>
+  </header>
+
+  <h1 class="cart-title">Your Shopping Bag</h1>
+
+  <!-- Cart Content split layout -->
+  <main class="cart-container">
+    <!-- Left Column: Items List -->
+    <div id="cartItems">
+      <!-- Injected dynamically via js/cart.js -->
+    </div>
+
+    <!-- Right Column: Order Summary Card -->
+    <div class="summary-card">
+      <h2>Order Summary</h2>
+      
+      <div class="summary-row">
+        <span>Items Subtotal</span>
+        <span id="subtotal">₹0</span>
+      </div>
+      
+      <div class="summary-row">
+        <span>Premium Delivery</span>
+        <span>₹150</span>
+      </div>
+      
+      <div class="summary-row total-row">
+        <span>Grand Total</span>
+        <span id="total">₹0</span>
+      </div>
+
+      <button class="btn-checkout" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

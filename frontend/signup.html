@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Create Account</title>
+  <link rel="stylesheet" href="css/signup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="signup-card">
+    <div class="logo-section">
+      <h1>Link<span>Loom</span></h1>
+      <p>Weaving Stories Through Crafts</p>
+    </div>
+
+    <h2>Create Account</h2>
+    <p class="subtitle">Join our premium artisan marketplace</p>
+
+    <!-- Full Name Input -->
+    <div class="input-box">
+      <i class="fa-solid fa-user"></i>
+      <input id="name" type="text" placeholder="Full Name" required>
+    </div>
+
+    <!-- Email Address Input -->
+    <div class="input-box">
+      <i class="fa-solid fa-envelope"></i>
+      <input id="email" type="email" placeholder="Email Address" required>
+    </div>
+
+    <!-- Mobile Number Input -->
+    <div class="input-box">
+      <i class="fa-solid fa-phone"></i>
+      <input id="mobile" type="text" placeholder="Mobile Number" required>
+    </div>
+
+    <!-- Password Input -->
+    <div class="input-box">
+      <i class="fa-solid fa-lock"></i>
+      <input id="password" type="password" placeholder="Password" required>
+    </div>
+
+    <!-- Create Button -->
+    <button class="signup-btn" onclick="createAccount()">Create Account</button>
+
+    <div class="login-link">
+      Already have an account?
+      <a href="login.html">Sign In</a>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

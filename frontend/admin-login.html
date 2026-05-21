@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Admin Access</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div class="login-card">
+    <h1>Link<span>Loom</span></h1>
+    <p>Administrative Console Access</p>
+    <!-- Username Input -->
+    <div class="input-box">
+      <i class="fa-solid fa-user-shield"></i>
+      <input id="user" type="text" placeholder="Admin Username" required>
+    </div>
+    <!-- Password Input -->
+    <div class="input-box">
+      <i class="fa-solid fa-lock"></i>
+      <input id="pass" type="password" placeholder="Admin Password" required>
+    </div>
+    <!-- Submit Button -->
+    <button onclick="loginAdmin()">Authorize Login</button>
+    <div class="signup-link">
+      Need to go back?
+      <a href="marketplace.html">Back to Marketplace</a>
+    </div>
+  </div>
+  <script>
+    function loginAdmin() {
+      let u = document.getElementById("user").value;
+      let p = document.getElementById("pass").value;
+      if (u === "admin" && p === "1234") {
+        localStorage.setItem("admin", "true");
+        alert("Authorization Granted. Welcome, Admin.");
+        window.location.href = "admin.html";
+      } else {
+        alert("Invalid administrative credentials.");
+      }
+    }
+  </script>
+</body>
+</html>

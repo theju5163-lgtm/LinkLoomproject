@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --color-cream: #FAF6EE;
+  --color-cream-dark: #F2E9DB;
+  --color-brown: #421B12;
+  --color-brown-light: #60281A;
+  --color-gold: #CF9E28;
+  --color-white: #FFFFFF;
+  --color-text: #2C1810;
+  --color-text-muted: #7A695E;
+  --color-border: #E8DFD3;
+  --shadow-soft: 0 20px 45px rgba(66, 27, 18, 0.06);
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-cream);
+  background-image: radial-gradient(circle at 10% 20%, rgba(207, 158, 40, 0.03) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(66, 27, 18, 0.03) 0%, transparent 45%);
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background elements for premium visual depth */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+}
+
+body::before {
+  top: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(207, 158, 40, 0.05);
+}
+
+body::after {
+  bottom: -10%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(66, 27, 18, 0.04);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--color-white);
+  padding: 50px 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid var(--color-border);
+  animation: cardFadeIn 0.8s ease-out;
+}
+
+.login-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 55px rgba(66, 27, 18, 0.09);
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-card h1 {
+  font-family: var(--font-serif);
+  color: var(--color-brown);
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.login-card h1 span {
+  color: var(--color-gold);
+}
+
+.login-card p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+/* Input Fields */
+.input-box {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-cream);
+  transition: all 0.3s ease;
+}
+
+.input-box:focus-within {
+  border-color: var(--color-gold);
+  background: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(207, 158, 40, 0.1);
+}
+
+.input-box i {
+  margin-right: 14px;
+  color: var(--color-gold);
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+.input-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.input-box input::placeholder {
+  color: #A69182;
+  font-weight: 400;
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  background-color: var(--color-brown);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(66, 27, 18, 0.15);
+}
+
+button:hover {
+  background-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(207, 158, 40, 0.25);
+}
+
+.signup-link {
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.signup-link a {
+  text-decoration: none;
+  color: var(--color-brown);
+  font-weight: 600;
+  transition: color 0.3s;
+  margin-left: 5px;
+}
+
+.signup-link a:hover {
+  color: var(--color-gold);
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 35px 25px;
+  }
+  .login-card h1 {
+    font-size: 32px;
+  }
+}

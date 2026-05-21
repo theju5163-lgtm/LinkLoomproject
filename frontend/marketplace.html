@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Premium Artisan Marketplace</title>
+  <link rel="stylesheet" href="css/marketplace.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body onload="loadProducts()">
+
+  <!-- Premium Sticky Header -->
+  <header>
+    <div class="nav">
+      <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+        <h2>Link<span>Loom</span></h2>
+      </div>
+
+      <div class="nav-right">
+        <!-- Dashboard Button -->
+        <button onclick="window.location.href='dashboard.html'" style="margin-right: 8px;"><i class="fa-solid fa-chart-line"></i> Dashboard</button>
+        
+        <!-- Cart Widget -->
+        <div class="cart" onclick="window.location.href='cart.html'">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cartCount">0</span>
+        </div>
+
+        <!-- Logout -->
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Large Hero Banner with Search Bar -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Handmade Masterworks</h1>
+      <p>Curated luxury crafts directly from master artisan families across India.</p>
+      
+      <!-- Central Search Box -->
+      <div class="search-wrapper">
+        <div class="search">
+          <input id="search" placeholder="Search by craft, category, or artisan..." onkeyup="searchProducts()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter Bar -->
+  <div class="categories-bar">
+    <button class="active" onclick="filterCategory('All', this)">All Masterworks</button>
+    <button onclick="filterCategory('Pottery', this)">Pottery</button>
+    <button onclick="filterCategory('Clothes', this)">Apparel & Silk</button>
+    <button onclick="filterCategory('Jewelry', this)">Royal Jewelry</button>
+    <button onclick="filterCategory('Handmade', this)">Handcrafted</button>
+  </div>
+
+  <!-- Central Product Marketplace -->
+  <main class="marketplace-container">
+    <h2 class="section-title">Curated Collection</h2>
+    
+    <!-- Dynamic Products Grid -->
+    <div class="products" id="products">
+      <!-- Injected dynamically via js/product-details.js -->
+    </div>
+  </main>
+
+  <script src="js/product-details.js"></script>
+</body>
+</html>

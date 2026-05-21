@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Checkout Confirmation</title>
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Premium Sticky Header -->
+  <header>
+    <nav>
+      <div class="logo" onclick="window.location.href='marketplace.html'" style="cursor: pointer;">
+        <h2 style="font-family: 'Playfair Display', serif; color: #421B12;">LinkLoom</h2>
+      </div>
+      <button onclick="window.location.href='cart.html'"><i class="fa-solid fa-arrow-left"></i> Return To Cart</button>
+    </nav>
+  </header>
+
+  <h1 class="checkout-title">Secure Checkout</h1>
+
+  <!-- Checkout Container split-grid -->
+  <main class="checkout-container">
+    <!-- Left Column: Shipping & Payment details -->
+    <div>
+      <!-- Delivery Form -->
+      <div class="checkout-card">
+        <h2>Delivery Information</h2>
+        
+        <div class="form-grid">
+          <!-- Full Name -->
+          <div class="form-group full-width">
+            <label for="name">Recipient Full Name</label>
+            <div class="input-box">
+              <i class="fa-solid fa-user"></i>
+              <input id="name" type="text" placeholder="Enter full name" required>
+            </div>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <div class="input-box">
+              <i class="fa-solid fa-phone"></i>
+              <input id="phone" type="tel" placeholder="Enter 10-digit number" required>
+            </div>
+          </div>
+
+          <!-- Pincode -->
+          <div class="form-group">
+            <label for="pincode">Pincode / Postal Code</label>
+            <div class="input-box">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <input id="pincode" type="text" placeholder="Enter 6-digit pin" required>
+            </div>
+          </div>
+
+          <!-- Full Address -->
+          <div class="form-group full-width">
+            <label for="address">Shipping Address</label>
+            <div class="input-box" style="align-items: flex-start;">
+              <i class="fa-solid fa-house" style="margin-top: 4px;"></i>
+              <textarea id="address" placeholder="Enter flat/house no, street, area details..." required></textarea>
+            </div>
+          </div>
+
+          <!-- City -->
+          <div class="form-group full-width">
+            <label for="city">City / District</label>
+            <div class="input-box">
+              <i class="fa-solid fa-city"></i>
+              <input id="city" type="text" placeholder="Enter city name" required>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Selections -->
+      <div class="checkout-card">
+        <h2>Payment Method</h2>
+        <div class="payment-methods">
+          <div class="payment-option">
+            <input type="radio" id="cod" name="payment" value="cod" checked>
+            <label for="cod"><i class="fa-solid fa-hand-holding-dollar"></i> Cash on Delivery (COD)</label>
+          </div>
+          <div class="payment-option">
+            <input type="radio" id="card" name="payment" value="card">
+            <label for="card"><i class="fa-solid fa-credit-card"></i> Pay Online (UPI / Card)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Final Summary list -->
+    <div class="summary-card">
+      <h2>Items Summary</h2>
+      
+      <!-- Checkout product checklist -->
+      <div class="checkout-items" id="checkoutItems">
+        <!-- Injected dynamically via js/checkout.js -->
+      </div>
+
+      <!-- Price totals -->
+      <div class="summary-row">
+        <span>Items Subtotal</span>
+        <span id="subtotal">₹0</span>
+      </div>
+      <div class="summary-row">
+        <span>Premium Delivery</span>
+        <span>₹150</span>
+      </div>
+      <div class="summary-row total-row">
+        <span>Grand Total</span>
+        <span id="total">₹0</span>
+      </div>
+
+      <!-- Place Order button -->
+      <button class="btn-place-order" onclick="placeOrder()">Place Order</button>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

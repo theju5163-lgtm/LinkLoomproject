@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkLoom - Masterwork Details</title>
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body onload="loadProduct()">
+
+  <!-- Premium Sticky Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <h2 style="font-family: 'Playfair Display', serif; color: #421B12; cursor: pointer;" onclick="window.location.href='marketplace.html'">LinkLoom</h2>
+      </div>
+      <button onclick="window.location.href='marketplace.html'"><i class="fa-solid fa-arrow-left"></i> Back To Shop</button>
+    </nav>
+  </header>
+
+  <!-- Product Showcase Box -->
+  <main class="box" id="productContainer">
+    <div class="details-left">
+      <img id="img" src="" alt="Product Masterwork Image">
+    </div>
+    
+    <div class="details-right">
+      <span class="category-tag" id="category">Handcrafted Heritage</span>
+      <h1 id="name">Loading Masterwork...</h1>
+      
+      <div class="rating">
+        <span class="stars" id="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </span>
+        <span class="rating-num" id="ratingNum">(4.7)</span>
+      </div>
+
+      <h2 id="price">₹0</h2>
+      
+      <p class="desc" id="description">
+        This exclusive masterwork represents generational skill, passed down through artisan families. Carefully shaped by hand using refined organic techniques, it delivers an exquisite addition to modern collections.
+      </p>
+
+      <!-- Purchase Actions -->
+      <div class="actions">
+        <button class="btn-add-to-cart" id="addToCartBtn">Add To Cart</button>
+        <button class="btn-buy-now" id="buyNowBtn">Buy Now</button>
+      </div>
+
+      <!-- Story Integration -->
+      <div class="story-box">
+        <h3>Craft Story</h3>
+        <p id="storyText">
+          Every mark on this artifact represents hours of dedication. Sourced from natural, native materials, it preserves traditional cultural integrity while empowering rural artisan guilds.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    function loadProduct() {
+      let id = localStorage.getItem("selectedProduct");
+      if (!id) {
+        document.getElementById("productContainer").innerHTML = "<h2 style='grid-column: 1/-1; text-align: center; padding: 40px; color: #421B12;'>No product selected. Please select a product from the shop.</h2>";
+        return;
+      }
+
+      let product = getProduct(id);
+      if (!product) {
+        document.getElementById("productContainer").innerHTML = "<h2 style='grid-column: 1/-1; text-align: center; padding: 40px; color: #421B12;'>Product not found.</h2>";
+        return;
+      }
+
+      document.getElementById("img").src = product.image;
+      document.getElementById("img").alt = product.name;
+      document.getElementById("name").innerText = product.name;
+      document.getElementById("category").innerText = product.category;
+      document.getElementById("price").innerText = "₹" + product.price.toLocaleString();
+      
+      if (product.description) {
+        document.getElementById("description").innerText = product.description;
+      }
+      
+      // Dynamic Star generation
+      let ratingVal = product.rating || 4.7;
+      document.getElementById("ratingNum").innerText = "(" + ratingVal + ")";
+      let starsHTML = "";
+      for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(ratingVal)) {
+          starsHTML += `<i class="fa-solid fa-star"></i>`;
+        } else if (i - 0.5 <= ratingVal) {
+          starsHTML += `<i class="fa-solid fa-star-half-stroke"></i>`;
+        } else {
+          starsHTML += `<i class="fa-regular fa-star"></i>`;
+        }
+      }
+      document.getElementById("stars").innerHTML = starsHTML;
+
+      // Add functionality to buttons
+      document.getElementById("addToCartBtn").onclick = function() {
+        addToCart(product.id);
+      };
+      
+      document.getElementById("buyNowBtn").onclick = function() {
+        // Buy Now sets state and opens checkout
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let exists = cart.find(p => p.id === product.id);
+        if (!exists) {
+          product.qty = 1;
+          cart.push(product);
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "checkout.html";
+      };
+    }
+  </script>
+</body>
+</html>
